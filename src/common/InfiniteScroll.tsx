@@ -27,7 +27,12 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = props =>
 
     useEffect(() =>
     {
-        if(!scrollToBottom) return;
+        setScrollIndex(rows.length - 1);
+    }, [ rows.length ]);
+
+    useEffect(() =>
+    {
+        if(!scrollToBottom || !scrollToIndex) return;
 
         scrollToIndex(scrollIndex);
     }, [ scrollToBottom, scrollIndex, scrollToIndex ]);
